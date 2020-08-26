@@ -5,7 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-/**
+/*
  *  1) Добавить еще упражения по инвентарю который есть. То есть если какого-то инструмента нет - его не писать
  *  2) Добавить вариации тренировок (еффективеная, для начинающих, в зависимости от цели(соревнования...
  *  3) Добавить привязку к конкретному человеку (личное расписание с повышением весов если все отлично, с понижением весов и интенсивности,0 если долго не занимался...
@@ -17,6 +17,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
  *
  *
  * Планы на сейчас:
+ * 0) понять в чем ошибка
  * 1) добавить поддержку БД с упражениями (Если подключение отсутствует или какая-то ошибка - то использовать JSON!!!
  * 2) доделать ту версию ScheduleCreatorSimple, то есть все методы прописать.
  * 3) Дэббаг и рефакторинг
@@ -34,7 +35,7 @@ public class Main {
         ctx.refresh();
 
         ScheduleCreatorInterface scheduleCreator = (ScheduleCreatorInterface) ctx.getBean("ScheduleCreator");
-        System.out.println(scheduleCreator.createScheduleNumberOfExercises(2));
+        System.out.println(scheduleCreator.createScheduleNumberOfExercises(3));
 
     }
 

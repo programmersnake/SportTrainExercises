@@ -4,7 +4,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.SneakyThrows;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.util.List;
 
 public class ConfiguratorJSONUsingJackson implements Configurator {
@@ -30,9 +32,9 @@ public class ConfiguratorJSONUsingJackson implements Configurator {
         while(bufferedReader.read()!=-1) {
             exercisesTextJson+=bufferedReader.readLine();
         }
+
         return exercisesTextJson;
     }
-
 
     @SneakyThrows
     @Override
@@ -49,6 +51,17 @@ public class ConfiguratorJSONUsingJackson implements Configurator {
     public String setterListObj(List<Exercise> listObjects) {
         String jsonStr = objectMapper.writeValueAsString(listObjects);
 
+        saveTextToJsonFile(jsonStr);
+
         return jsonStr;
+    }
+
+    @SneakyThrows
+    private void saveTextToJsonFile(String jsonString) {
+        FileWriter writer = new FileWriter(fullPath, false);
+
+        BufferedWriter bufferedWriter = new BufferedWriter(writer);
+
+        bufferedWriter.write(jsonString);
     }
 }

@@ -28,7 +28,7 @@ public class ScheduleCreatorSimple implements ScheduleCreatorInterface {
 
     private void createRandomWorkoutSchedule(int numberOfExercises, List<Exercise> exerciseList) {
         while(workoutSchedule.getNumberOfExercisesInSchedule()!=numberOfExercises) {
-            int randomIndex = (int) (Math.random()*numberOfExercises);
+            int randomIndex = (int) (Math.random()*exerciseList.size());
             Exercise newExercise = exerciseList.get(randomIndex);
 
             if(!workoutSchedule.containsExercise(newExercise))

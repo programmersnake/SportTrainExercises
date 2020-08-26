@@ -8,6 +8,7 @@ import core.schedule.WorkoutSchedule;
 import core.schedule.WorkoutScheduleInterface;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
 
 @Configuration
 public class JavaConfig {
@@ -23,6 +24,7 @@ public class JavaConfig {
     }
 
     @Bean("WorkoutSchedule")
+    @Scope(scopeName = "prototype")
     public WorkoutScheduleInterface getWorkoutSchedule() {
         return new WorkoutSchedule();
     }

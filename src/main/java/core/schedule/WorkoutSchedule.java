@@ -1,14 +1,17 @@
 package core.schedule;
 
 import core.gettingAllExercises.Exercise;
+import lombok.Getter;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class WorkoutSchedule implements WorkoutScheduleInterface{
 
+    @Getter
     private List<Exercise> exerciseList = new ArrayList<>();
 
+    private final String LINE_SEPARATOR = System.lineSeparator();
     private final String RELAX_DESCRIPTION = "Use an ice pack.\n" +
             "Go for a massage.\n" +
             "Stretch, stretch, stretch.\n" +
@@ -49,7 +52,21 @@ public class WorkoutSchedule implements WorkoutScheduleInterface{
 
     @Override
     public String toString() {
-        return exerciseList.toString();
+        String toString=LINE_SEPARATOR+"WorkoutSchedule"+LINE_SEPARATOR;
+        int indexOfExercisesList = 1;
+
+        for (Exercise exercise : exerciseList) {
+            toString += (String.valueOf(indexOfExercisesList) + ")" + LINE_SEPARATOR) +
+                        "Name: " + exercise.getName() + LINE_SEPARATOR +
+                        "Part of body: " + exercise.getPartOfBody() + LINE_SEPARATOR +
+                        "Description: " + exercise.getDescription() + LINE_SEPARATOR +
+                        "Number of times: " + exercise.getNumberOfTimes() + LINE_SEPARATOR +
+                        "Number of tries: " + exercise.getNumberOfTries() + LINE_SEPARATOR;
+
+            indexOfExercisesList++;
+        }
+
+        return toString;
     }
 }
 
