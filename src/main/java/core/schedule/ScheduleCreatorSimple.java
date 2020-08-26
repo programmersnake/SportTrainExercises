@@ -5,6 +5,7 @@ import core.gettingAllExercises.Exercise;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
+import java.util.Map;
 
 public class ScheduleCreatorSimple implements ScheduleCreatorInterface {
 
@@ -34,15 +35,29 @@ public class ScheduleCreatorSimple implements ScheduleCreatorInterface {
             if(!workoutSchedule.containsExercise(newExercise))
                 workoutSchedule.addExercise(newExercise);
         }
+        workoutSchedule.addExercise(workoutSchedule.RelaxAfterWorkout());
     }
 
     @Override
-    public WorkoutScheduleInterface createScheduleTimeOfWorkout(short timeOfWorkout) {
-        return null;
+    public WorkoutScheduleInterface createScheduleTimeOfWorkout(double HoursForWorkout) {
+        int numberExercises = (int) (HoursForWorkout * 10);
+        return createScheduleNumberOfExercises(numberExercises);
     }
 
     @Override
     public WorkoutScheduleInterface createScheduleOnPartOfBody(String partOfBody) {
-        return null;
+        Map<String, List<Exercise>> exerciseMap = configurator.convertExercisesToMap(configurator.getterListExercises());
+
+        try{
+            List<Exercise> exerciseList = exerciseMap.get(partOfBody);
+
+            for (Exercise exercise : exerciseList)
+                workoutSchedule.addExercise(exercise);
+            return workoutSchedule;
+        }
+        catch(Exception ex) {
+            return null;
+        }
+
     }
 }

@@ -11,13 +11,13 @@ public class WorkoutSchedule implements WorkoutScheduleInterface{
     @Getter
     private List<Exercise> exerciseList = new ArrayList<>();
 
-    private final String LINE_SEPARATOR = System.lineSeparator();
-    private final String RELAX_DESCRIPTION = "Use an ice pack.\n" +
+    final String RELAX_DESCRIPTION = "Use an ice pack.\n" +
             "Go for a massage.\n" +
             "Stretch, stretch, stretch.\n" +
             "Do light exercises (such as walking, swimming)\n" +
             "Build up eccentric exercises slowly.\n" +
             "Take a warm bath.";
+    private static final String LINE_SEPARATOR = System.lineSeparator();
 
     @Override
     public void addExercise(Exercise newExercise) {
@@ -33,11 +33,6 @@ public class WorkoutSchedule implements WorkoutScheduleInterface{
     @Override
     public int getNumberOfExercisesInSchedule() {
         return exerciseList.size();
-    }
-
-    @Override
-    public Exercise aboutRelaxAfterWorkout() {
-        return new Exercise("Relax", "fullBody", RELAX_DESCRIPTION, 1, 0);
     }
 
     @Override
@@ -67,6 +62,11 @@ public class WorkoutSchedule implements WorkoutScheduleInterface{
         }
 
         return toString;
+    }
+
+    @Override
+    public Exercise RelaxAfterWorkout() {
+        return new Exercise("Relax", "fullBody", RELAX_DESCRIPTION, 1, 0);
     }
 }
 
