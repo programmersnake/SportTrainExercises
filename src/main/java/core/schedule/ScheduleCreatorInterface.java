@@ -2,8 +2,8 @@ package core.schedule;
 
 public interface ScheduleCreatorInterface {
 
-    WorkoutSchedule createScheduleNumberOfExercises(int numberOfExercises);
-    WorkoutSchedule createScheduleTimeOfWorkout(short timeOfWorkout);
-    WorkoutSchedule createScheduleOnPartOfBody(String partOfBody);
+    WorkoutScheduleInterface createScheduleNumberOfExercises(int numberOfExercises);
+    WorkoutScheduleInterface createScheduleTimeOfWorkout(short timeOfWorkout);
+    WorkoutScheduleInterface createScheduleOnPartOfBody(String partOfBody);
 
 }

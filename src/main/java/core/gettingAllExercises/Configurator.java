@@ -13,7 +13,7 @@ public interface Configurator {
 
     String setterListObj(List<Exercise> listObjects);
 
-    default Map convertExercisesToMap(List<Exercise> listExercises) {
+    default Map<String, List<Exercise>> convertExercisesToMap(List<Exercise> listExercises) {
         Map<String, List<Exercise>> mapExercises = new HashMap<>();
 
         for (Exercise exercise:listExercises) {
