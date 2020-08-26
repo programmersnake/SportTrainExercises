@@ -1,8 +1,10 @@
-package sport.gettingAllExercises;
+package core.gettingAllExercises;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import lombok.SneakyThrows;
+
+import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

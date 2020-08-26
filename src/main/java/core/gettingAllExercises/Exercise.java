@@ -1,4 +1,4 @@
-package sport.gettingAllExercises;
+package core.gettingAllExercises;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
