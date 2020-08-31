@@ -9,9 +9,9 @@ import java.util.Map;
 
 public interface Configurator {
 
-    List<Exercise> getterListExercises();
+    List<Exercise> getListExercises();
 
-    String setterListObj(List<Exercise> listObjects);
+    void addNewExercise(Exercise newExercise);
 
     default Map<String, List<Exercise>> convertExercisesToMap(List<Exercise> listExercises) {
         Map<String, List<Exercise>> mapExercises = new HashMap<>();

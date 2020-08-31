@@ -7,7 +7,6 @@ import core.schedule.ScheduleCreatorSimple;
 import core.schedule.WorkoutSchedule;
 import core.schedule.WorkoutScheduleInterface;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
-import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;

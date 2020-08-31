@@ -4,6 +4,7 @@ import core.gettingAllExercises.Configurator;
 import core.gettingAllExercises.Exercise;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import javax.annotation.PostConstruct;
 import java.util.List;
 import java.util.Map;
 
@@ -15,10 +16,15 @@ public class ScheduleCreatorSimple implements ScheduleCreatorInterface {
     @Autowired
     private WorkoutScheduleInterface workoutSchedule;
 
+    private List<Exercise> exerciseList = null;
+
+    @PostConstruct
+    private void init() {
+        exerciseList = configurator.getListExercises();
+    }
+
     @Override
     public WorkoutScheduleInterface createScheduleNumberOfExercises(int numberOfExercises) {
-        List<Exercise> exerciseList = configurator.getterListExercises();
-
         if(numberOfExercises>exerciseList.size())
             numberOfExercises=exerciseList.size();
 
@@ -46,7 +52,7 @@ public class ScheduleCreatorSimple implements ScheduleCreatorInterface {
 
     @Override
     public WorkoutScheduleInterface createScheduleOnPartOfBody(String partOfBody) {
-        Map<String, List<Exercise>> exerciseMap = configurator.convertExercisesToMap(configurator.getterListExercises());
+        Map<String, List<Exercise>> exerciseMap = configurator.convertExercisesToMap(configurator.getListExercises());
 
         try{
             List<Exercise> exerciseList = exerciseMap.get(partOfBody);
