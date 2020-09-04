@@ -28,6 +28,9 @@ import java.util.concurrent.ExecutionException;
  * 2) Дэббаг и рефакторинг. Debugging & Refactoring
  * 3) Создание первой версии пользовательского интерфейса. Create UI
  *
+ *
+ *   Press, back, pectoral, triceps, biceps, stopa, golen, predplechie, chey, trapecia, plechi, kvadraceps, chirochaichie, yagotica
+ *
  */
 @SpringBootApplication
 public class Main {
@@ -35,21 +38,16 @@ public class Main {
     public static void main(String[] args) {
         SpringApplication.run(Main.class);
 
-        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
+        /*AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
         ctx.register(JavaConfig.class);
         ctx.refresh();
 
         ScheduleCreatorInterface scheduleCreator = (ScheduleCreatorInterface) ctx.getBean("ScheduleCreator");
-        //Configurator configurator = (Configurator) ctx.getBean("Configurator");
 
         String partOfBodyString = "pectoral";
 
-        //while(addExercisesToListAndFile(configurator, partOfBodyString));
-
-        //System.out.println(scheduleCreator.createScheduleNumberOfExercises(10));
-        //System.out.println(scheduleCreator.createScheduleTimeOfWorkout(0.5));
         System.out.println(scheduleCreator.createScheduleOnPartOfBody(partOfBodyString));
-
+*/
     }
 
     static boolean addExercisesToListAndFile(Configurator configurator, String partOfBodyString){
